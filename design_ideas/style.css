@@ -1,3 +1,5 @@
+/* All Css */
+
 @font-face {
     font-family: 'adequateextra_light';
     src: url('adequate-extralight-webfont.woff2') format('woff2'),
@@ -16,6 +18,29 @@ body {
     background-color: #0e76da;
 }
 
+/* Header for most pages */
+
+.links {
+    vertical-align: top;
+    margin: .5% 0% 0% 90%
+}
+
+    .links a {
+            text-decoration: none;
+            color: #FFB54B;
+            padding: 0px 5px;
+            text-shadow: 1px 1px #00498F;
+        }
+
+.page_title {
+    margin-left:4%;
+    font-family: "adequateextra_light";
+    font-size: 48px;
+    font-weight: 100;
+    color: #ff9700;
+    text-shadow: 2px 2px #00498F;
+}
+
 /* Login Page */
 
 #greeting {
@@ -30,11 +55,13 @@ body {
         font-weight: 100;
         font-family: "adequateextra_light";
         color: #ff9700;
+        text-shadow: 2px 2px #00498F;
     }
 
     #greeting p {
         font-family: "adequateextra_light";
         color: #ffb54B;
+        text-shadow: 1px 1px #00498F;
     }
 
 #get_in {
@@ -44,6 +71,7 @@ body {
     background-color: #ffB54B;
     border-radius: 16px;
     text-align: center;
+    box-shadow: 4px 4px 6px #00498F;
 }
 
 #get_in h2 {
@@ -87,47 +115,99 @@ body {
 
 /* Users Page */
 
-.page_title {
-    display: inline-block;
-    margin: 2% 0% 0% 4%;
-    font-family: "adequateextra_light";
-    font-size: 48px;
-    font-weight: 100;
-    color: #ff9700;
-}
-
-.links {
-    display: inline-block;
-    vertical-align: top;
-    margin: 1.5% 0% 0% 75%;
-}
-
-    .links a {
-        text-decoration: none;
-        color: #FFB54B;
-        padding: 0px 5px;
-    }
-
-#board {
-    display: inline-block;
-    margin: 4% 0% 0% 20%;
+#post_idea {  
+    margin: 2% auto;
     width: 600px;
     text-align: center;
 }
 
-.posted_ideas {
-    width: 500px;
-    height: 150px;
-    padding: 20px;
-    margin-top: 20px;
-    background-color: #FFB54B;
-    border-radius: 25px;
-    text-align: left;
+#post_idea h2 {
+    color: white;
+    font-weight: 100;
+    font-size: 32px;
+    text-shadow: 2px 2px #00498F;
 }
 
-.posted_ideas a {
-    margin: 
+#post_idea textarea {
+    width: 500px;
+    padding: 20px;
+    margin: 10px auto 0 auto;
+    background-color: #FFB54B;
+    border: 4px solid #ff9700;
+    border-radius: 25px;
+    resize: none;
+    box-shadow: 4px 4px 6px #00498F;
 }
+
+hr {
+    margin-top: 1%;
+    width: 45%;
+    border: 1px solid;
+    color: #00498F;
+}
+
+#board {
+    display: block;
+    margin: 2% auto;
+    width: 600px;
+    text-align: center;
+}
+
+#board_greeting {
+    color: white;
+    font-weight: 100;
+    font-size: 32px;
+    text-shadow: 2px 2px #00498F;
+}
+
+.posted_ideas {
+    width: 500px;
+    min-height: 75px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #FFB54B;
+    border: 4px solid #ff9700;
+    border-radius: 25px;
+    text-align: left;
+    position: relative;
+    box-shadow: 4px 4px 6px #00498F;
+}
+
+.triangle::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 20px solid #ff9700;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #ff9700;
+    border-bottom: 20px solid transparent;
+    right: -40px;
+    top: 20px;
+  }
+
+    #delete_button {
+        display: block;
+        width: 16px;
+        margin-left: 96.5%;
+        margin-bottom: 4px;
+        border-radius: 6px;
+        background-color: #0e76da;
+        border: 1px solid #0e76da;
+        color: white;
+        font-size: 14px;
+        box-shadow: 1px 1px 1px 2px #00498F;
+        text-align: center;
+    }
+
+    .posted_ideas a {
+        vertical-align: bottom;
+        margin-left: 95%;
+        text-decoration: none;
+        color: #00498F
+    }
+
+
 
 
 

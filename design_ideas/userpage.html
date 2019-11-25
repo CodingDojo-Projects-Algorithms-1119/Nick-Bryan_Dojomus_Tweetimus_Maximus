@@ -10,21 +10,31 @@
 </head>
 
 <body>
-    <h1 class="page_title">Ideas!</h1>
     <div class="links">
         <a href="">Home</a>
         <a href="">Account</a>
         <a href="">Logout</a>
     </div>
+    <h1 class="page_title">Ideas!</h1>
+    <div id="post_idea">
+        <h2>Hey User, post a great idea!</h2>
+        <textarea cols="40" rows="2" maxlength="150" placeholder="If we just blew into the sail, we could travel the oceans forever!"></textarea>
+    </div>
+    <hr>
     <div id="board">
-        <p>Welcome User, share a greate Idea!</p>
-        <div class="posted_ideas">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sodales, quam nec egestas consectetur, nulla velit tempus enim, a auctor mauris ante nec nisl. Sed venenatis in justo nec posuere. Vivamus commodo, massa ut malesuada feugiat, leo ipsum eleifend justo, non elementum nulla turpis tincidunt elit. Pellentesque ac nisi in. </p>
+        <h2 id="board_greeting">What others are thinking</h2>
+        <div class="posted_ideas triangle">
+            <a href="" id="delete_button">X</a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sodales, quam nec egestas consectetur, nulla velit tempus enim, a auctor mauris ante nec nisl.</p>
             <a href="edit">Edit</a>
         </div>
+        <div class="posted_ideas triangle">
+            <p>aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus</p>
+        </div>
+        <div class="posted_ideas triangle">
+            <p>aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit</p>
+        </div>
     </div>
-
-
 </body>
 
 </html>
