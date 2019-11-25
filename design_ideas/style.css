@@ -21,15 +21,19 @@ body {
 /* Header for most pages */
 
 .links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     vertical-align: top;
-    margin: .5% 0% 0% 90%
+    max-height: 20px;
 }
 
     .links a {
-            text-decoration: none;
-            color: #FFB54B;
-            padding: 0px 5px;
-            text-shadow: 1px 1px #00498F;
+        right: 10px;
+        text-decoration: none;
+        color: #FFB54B;
+        padding: 0px 5px;
+        text-shadow: 1px 1px #00498F;
         }
 
 .page_title {
@@ -126,18 +130,20 @@ body {
     font-weight: 100;
     font-size: 32px;
     text-shadow: 2px 2px #00498F;
+    font-family: "adequateextra_light";
 }
 
 #post_idea textarea {
     width: 500px;
     padding: 20px;
     margin: 10px auto 0 auto;
-    background-color: #FFB54B;
+    background-color: #FFe7c4;
     border: 4px solid #ff9700;
     border-radius: 25px;
     resize: none;
     box-shadow: 4px 4px 6px #00498F;
 }
+
 
 hr {
     margin-top: 1%;
@@ -150,6 +156,7 @@ hr {
     display: block;
     margin: 2% auto;
     width: 600px;
+    max-height: 2000px;
     text-align: center;
 }
 
@@ -158,14 +165,16 @@ hr {
     font-weight: 100;
     font-size: 32px;
     text-shadow: 2px 2px #00498F;
+    font-family: "adequateextra_light";
 }
 
 .posted_ideas {
     width: 500px;
     min-height: 75px;
+    max-height: 200px;
     padding: 10px 20px;
     margin-top: 20px;
-    background-color: #FFB54B;
+    background-color: #FFe7c4;
     border: 4px solid #ff9700;
     border-radius: 25px;
     text-align: left;
@@ -193,19 +202,118 @@ hr {
         margin-bottom: 4px;
         border-radius: 6px;
         background-color: #0e76da;
-        border: 1px solid #0e76da;
+        border: 1px solid #9DB3C8;
         color: white;
         font-size: 14px;
-        box-shadow: 1px 1px 1px 2px #00498F;
+        box-shadow: 1px 1px 1px #00498F;
         text-align: center;
     }
 
     .posted_ideas a {
         vertical-align: bottom;
-        margin-left: 95%;
+        margin-left: 93%;
         text-decoration: none;
-        color: #00498F
+        color: #0e76da;
+        text-shadow: 1px 1px #00498F;
     }
+
+#friend_list {
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    width: 15%;
+    border: 4px solid #ff9700;
+    border-bottom: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #ffB54B;
+    box-shadow: 4px 4px 6px 6px #00498F;
+}
+
+
+#friend_list_header {
+    border-bottom: 3px solid #ff9700;
+}
+
+    #friend_list_header h3 {
+        display: inline-block;
+        margin: 1% 0px 1% 32%;
+        font-family: "adequateextra_light";
+        color: white;
+        text-shadow: 1px 1px #a36302;
+    }
+
+    .min_expand {
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        width: 16px;
+        height: 8px;
+        background-color: #0e76da;
+        border: 1px solid #9DB3C8;
+        border-radius: 6px;
+        color: white;
+        box-shadow: 1px 1px 1px #00498F;
+        text-align: center;
+        padding-bottom: 4px;
+        line-height: 1px;
+    }
+
+#scroll_bar {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.friends {
+    display: block;
+    text-decoration: none;
+    color: black;
+    background-color: #FFe7c4;
+    border: 2px outset #ff9700;
+    margin: 4px 4px;
+    padding: 4px;
+    text-align: center;
+}
+
+.message_from_friend {
+    display: inline-block;
+    position: fixed;
+    right: 83%;
+    bottom: 0;
+    z-index: 998;
+    width: 15%;
+    border: 4px solid #ff9700;
+    border-bottom: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #ffB54B;
+    box-shadow: 4px 4px 6px 6px #00498F;
+}
+
+    .message_from_friend p {
+        font-size: 14px;
+    }
+
+.message_header {
+    border-bottom: 3px solid #ff9700;
+}
+
+    .message_header h3 {
+        display: inline-block;
+        margin: 1% 0px 1% 32%;
+        font-family: "adequateextra_light";
+        color: white;
+        text-shadow: 1px 1px #a36302;
+    }
+
+.content {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+
 
 
 
