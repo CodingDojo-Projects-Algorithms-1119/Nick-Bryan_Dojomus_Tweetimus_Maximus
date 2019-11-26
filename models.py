@@ -11,6 +11,11 @@ friends_table = db.Table("friends",
     db.Column("friendee_id", db.Integer, db.ForeignKey("users.user_id"), primary_key=True)
 )
 
+block_list = db.Table("blocked",
+    db.Column("blocker_id", db.Integer, db.ForeignKey("users.user_id"), primary_key=True),
+    db.Column("blockee_id", db.Integer, db.ForeignKey("users.user_id"), primary_key=True)
+)
+
 class User(db.Model):
     __tablename__ = "users"
     user_id = db.Column(db.Integer, primary_key = True)
@@ -19,6 +24,7 @@ class User(db.Model):
     email = db.Column(db.String(45))
     password = db.Column(db.String(255))
     admin_status = db.Column(db.Integer)
+    profile = db.Column(db.String(1600))
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     liked_idea = db.relationship("Idea", secondary = "user_likes")
@@ -27,6 +33,11 @@ class User(db.Model):
         primaryjoin=user_id==friends_table.c.friendee_id, 
         secondaryjoin=user_id==friends_table.c.friender_id,
         backref="friending")
+    blocked=db.relationship("User", 
+        secondary=block_list, 
+        primaryjoin=user_id==block_list.c.blockee_id, 
+        secondaryjoin=user_id==block_list.c.blocker_id,
+        backref="blocking")        
 
     def create_admin(self):
         admin = User(
