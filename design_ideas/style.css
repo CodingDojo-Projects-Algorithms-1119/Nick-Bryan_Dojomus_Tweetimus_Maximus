@@ -129,28 +129,38 @@ body {
     text-align: center;
 }
 
-#post_idea h2 {
+    #post_idea h2 {
+        color: white;
+        font-weight: 100;
+        font-size: 32px;
+        text-shadow: 2px 2px #00498F;
+        font-family: "adequateextra_light";
+    }
+
+    #post_idea textarea {
+        width: 500px;
+        padding: 20px;
+        margin: 10px auto 0 auto;
+        background-color: #FFe7c4;
+        border: 4px solid #ff9700;
+        border-radius: 25px;
+        resize: none;
+        box-shadow: 4px 4px 6px #00498F;
+    }
+
+#submit_idea {
+    width: 125px;
+    padding: 5px 0px;
+    margin: 15px 0px 0px 275px;
+    border: none;
+    border-radius: 6px;
+    background-color: #00498F;
+    box-shadow: 3px 3px 6px #00498F;
     color: white;
-    font-weight: 100;
-    font-size: 32px;
-    text-shadow: 2px 2px #00498F;
-    font-family: "adequateextra_light";
+    cursor: pointer; 
 }
-
-#post_idea textarea {
-    width: 500px;
-    padding: 20px;
-    margin: 10px auto 0 auto;
-    background-color: #FFe7c4;
-    border: 4px solid #ff9700;
-    border-radius: 25px;
-    resize: none;
-    box-shadow: 4px 4px 6px #00498F;
-}
-
 
 hr {
-    margin-top: 1%;
     width: 45%;
     border: 1px solid;
     color: #00498F;
@@ -174,7 +184,6 @@ hr {
 
 .posted_ideas {
     width: 500px;
-    min-height: 75px;
     max-height: 200px;
     padding: 10px 20px;
     margin-top: 20px;
@@ -215,10 +224,22 @@ hr {
 
     .posted_ideas a {
         vertical-align: bottom;
-        margin-left: 93%;
         text-decoration: none;
         color: #0e76da;
         text-shadow: 1px 1px #00498F;
+    }
+
+    .like_idea {
+        display: inline-block;
+        width: 40px;
+        margin: 5px 40px 0px 380px;
+        border-radius: 6px;
+        background-color: #0e76da;
+        border: 1px solid #9DB3C8;
+        color: white !important;
+        font-size: 14px;
+        box-shadow: 1px 1px 1px #00498F;
+        text-align: center;
     }
 
 #friend_list {
@@ -328,6 +349,11 @@ hr {
     overflow-y: auto;
     padding: 10px 6px;
 }
+
+    .content h4 {
+        display: inline;
+    }
+
 
 
 
