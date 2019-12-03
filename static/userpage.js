@@ -1,6 +1,6 @@
 $(document).ready(function(){
 // delete button
-    $('#idea_feed').on('click','#delete_idea',function(){
+    $('#idea_feed').on('click','#delete_button',function(){
         var del_id = $(this).attr('class');
         var link ="/delete_idea/"+del_id
         $.ajax({
@@ -8,7 +8,7 @@ $(document).ready(function(){
             // data: $("#idea").serialize()
         })
         .done(function(response){
-            $("#idea_feed").html(response)
+            $("#board").html(response)
         })
         return false
     });
@@ -20,7 +20,7 @@ $(document).ready(function(){
             data: $("#idea").serialize()
         })
         .done(function(response){
-            $("#idea_feed").html(response)
+            $("#board").html(response)
             $('#idea_textarea').val('');
         })
         return false
