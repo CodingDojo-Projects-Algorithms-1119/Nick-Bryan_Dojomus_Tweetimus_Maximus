@@ -21,15 +21,19 @@ body {
 /* Header for most pages */
 
 .links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     vertical-align: top;
-    margin: .5% 0% 0% 90%
+    max-height: 20px;
 }
 
     .links a {
-            text-decoration: none;
-            color: #FFB54B;
-            padding: 0px 5px;
-            text-shadow: 1px 1px #00498F;
+        right: 10px;
+        text-decoration: none;
+        color: #FFB54B;
+        padding: 0px 5px;
+        text-shadow: 1px 1px #00498F;
         }
 
 .page_title {
@@ -46,8 +50,7 @@ body {
 #greeting {
     margin-left: 6%;
     padding-top: 3%;
-    vertical-align: top;
-    
+    vertical-align: top;   
 }
 
     #greeting h1 {
@@ -67,6 +70,7 @@ body {
 #get_in {
     display: block;
     margin: 5% auto 0% auto;
+    padding-top: 2px;
     width: 400px;
     background-color: #ffB54B;
     border-radius: 16px;
@@ -74,9 +78,12 @@ body {
     box-shadow: 4px 4px 6px #00498F;
 }
 
-#get_in h2 {
-    margin: 16px 0px 8px 0px;
-}
+    #get_in h2 {
+        margin: 16px 0px 8px 0px;
+        color: white;
+        font-family: "adequateextra_light";
+        text-shadow: 1px 1px #a36302
+    }
 
 #splitter {
     width: 65%;
