@@ -128,23 +128,35 @@ body {
     text-align: center;
 }
 
-#post_idea h2 {
-    color: white;
-    font-weight: 100;
-    font-size: 32px;
-    text-shadow: 2px 2px #00498F;
-    font-family: "adequateextra_light";
-}
+    #post_idea h2 {
+        color: white;
+        font-weight: 100;
+        font-size: 32px;
+        text-shadow: 2px 2px #00498F;
+        font-family: "adequateextra_light";
+    }
 
-#post_idea textarea {
-    width: 500px;
-    padding: 20px;
-    margin: 10px auto 0 auto;
-    background-color: #FFe7c4;
-    border: 4px solid #ff9700;
-    border-radius: 25px;
-    resize: none;
-    box-shadow: 4px 4px 6px #00498F;
+    #post_idea textarea {
+        width: 500px;
+        padding: 20px;
+        margin: 10px auto 0 auto;
+        background-color: #FFe7c4;
+        border: 4px solid #ff9700;
+        border-radius: 25px;
+        resize: none;
+        box-shadow: 4px 4px 6px #00498F;
+    }
+
+#submit_idea {
+    width: 125px;
+    padding: 5px 0px;
+    margin: 15px 0px 0px 275px;
+    border: none;
+    border-radius: 6px;
+    background-color: #00498F;
+    box-shadow: 3px 3px 6px #00498F;
+    color: white;
+    cursor: pointer;
 }
 
 

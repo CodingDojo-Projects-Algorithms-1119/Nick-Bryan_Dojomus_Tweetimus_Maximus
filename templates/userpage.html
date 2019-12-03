@@ -10,13 +10,21 @@
     <script src="{{ url_for('static', filename='./userpage.js') }}"></script>       
 </head>
 <body>
-    <p>Welcome <a href="/userprofile/{{user_data.user_id}}">{{ user_data.f_name }}</a>   <a href="/users">Users</a> <a href="/logout">Logout</a></p>
-    <a href="/followers/{{user_data['id']}}">Followers</a>
-    <form action="/create_idea" id="idea" method="POST">
-        <h2>Write a idea!</h2>
-        <textarea id="idea_textarea" form="idea" rows="10" cols="50" placeholder="Enter a idea!" name="idea_content"></textarea><br>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="links">
+        <a href="">Home</a>
+        <a href="">Account</a>
+        <a href="/users">Users</a>
+        <a href="/followers/{{user_data['id']}}">Followers</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <h1 class="page_title">Ideas!</h1>
+    <div id="post_idea">
+        <form action="/create_idea" id="idea" method="POST">
+            <h2>Hey {{user_data.f_name}}, post a great idea!</h2>
+            <textarea form="idea" rows="2" cols="40" placeholder="If we just blew into the sail, we could travel the oceans forever!" name="idea_content"></textarea><br>
+            <button type="submit" id="submit_idea">Submit</button>
+        </form>
+    </div>
     {% with messages = get_flashed_messages() %}   
     {% if messages %}                         
         {% for message in messages %}           
