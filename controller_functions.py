@@ -15,12 +15,15 @@ def index():
 
 def new_acc():
     is_valid = True
+    name_err = 0
     if not request.form['fname'].isalpha() or not len(request.form['fname']) >= 2:
         is_valid = False
-        flash("First name can only contain letters", "registration")
+        name_err = 1
+        flash("Names can contain only letters and be at least two characters", "registration")
     if not request.form['lname'].isalpha() or not len(request.form['lname']) >= 2:
         is_valid = False
-        flash("Last name can only contain letters", "registration")
+        if name_err == 1:
+            flash("Names can contain only letters and be at least two characters", "registration")
     if not password_reg.match(request.form["pass"]):
         is_valid = False
         flash("Password should be at least 5 characters, have one number, one uppercase and one lowercase letter, and one symbol", "registration")
@@ -72,7 +75,8 @@ def reg_email_check():
     if user:
         email_exists = True
         return render_template("partials/reg_error.html", email_exists = email_exists)
-    return render_template("partials/reg_error.html", email_format=email_format, email_exists = email_exists)
+    if email_format == True and email_exists == False:
+        return render_template("partials/reg_error.html", email_exists = email_exists)# email_format=email_format, 
 
 def reg_pw():
     pw_check = True
@@ -205,10 +209,9 @@ def userpage():
             # if td.seconds > 3599:
             #     tweet["time_since_hours"] = round (td.seconds / 3600)
 
-def validate_create_idea():
+def create_idea():
     if "user_id" not in session:
         return redirect("/")
-    print(request.form["idea_content"])
     is_valid = True
     if not request.form["idea_content"]:
         is_valid = False
@@ -216,7 +219,7 @@ def validate_create_idea():
     if len(request.form["idea_content"]) > 255:
         flash("Ideas must be less than 255 characters.")
         is_valid = False
-
+    
     if is_valid:
         new_idea = Idea(
                     content=request.form["idea_content"],
@@ -224,17 +227,26 @@ def validate_create_idea():
         db.session.add(new_idea)
         db.session.commit()
         flash("Idea saved!")
-
-    return redirect("/userpage")
+        user_data = User.query.filter_by(user_id = session["user_id"]["id"]).all()
+        idea_data = Idea.query.order_by(desc(Idea.created_at)).join(User).all()
+        return render_template("partials/idea_feed.html", user_data = user_data[0], idea_data= idea_data)
 
 def delete_idea(idea_id):
     if "user_id" not in session:
         return redirect("/")
     delete_idea = Idea.query.get(idea_id)
+    print(delete_idea.content)
     if delete_idea.author.user_id == session["user_id"]["id"]:
         delete_idea.author.user_ideas.remove(delete_idea)
         db.session.commit()
-    return redirect("/userpage")
+    clean_empty = Idea.query.filter_by(author_id=None).all()
+    for clean in clean_empty:
+        db.session.delete(clean)
+        db.session.commit()
+    user_data = User.query.filter_by(user_id = session["user_id"]["id"]).all()
+    idea_data = Idea.query.order_by(desc(Idea.created_at)).join(User).all()
+    return render_template("partials/idea_feed.html", user_data = user_data[0], idea_data= idea_data)
+    # return redirect("/userpage")
 
 def edit_page(idea_id):
     if "user_id" not in session:
