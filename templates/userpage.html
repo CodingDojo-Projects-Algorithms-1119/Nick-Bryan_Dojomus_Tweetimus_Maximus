@@ -11,8 +11,8 @@
 </head>
 <body>
     <div class="links">
-        <a href="">Home</a>
-        <a href="">Account</a>
+        <a href="/userpage">Home</a>
+        <a href="/userprofile/{{user_data.user_id}}">Account</a>
         <a href="/users">Users</a>
         <a href="/followers/{{user_data['id']}}">Followers</a>
         <a href="/logout">Logout</a>
@@ -41,7 +41,7 @@
         <!-- {% if following == () %}
         <p>You aren't following anyone!</p>
         {% endif %} -->
-        <p>{{ idea.author.f_name}} {{idea.author.l_name}} wrote at {{idea.created_at.strftime('%Y-%m-%d')}}:
+        <p><a href="/userprofile/{{idea.author.user_id}}">{{ idea.author.f_name}} {{idea.author.l_name}}</a> wrote at {{idea.created_at.strftime('%Y-%m-%d')}}:
             <!-- {% if idea["time_now"] %}
                 just now
                 {% elif idea["time_since_seconds"] %}

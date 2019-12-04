@@ -341,8 +341,63 @@ hr {
     padding: 10px 6px;
 }
 
+/* account profile */
+.profile_body{
+    margin-top: 5%;
+    margin-left:15%;
+}
+    .profile_body ul{
+        list-style-type: none;
+    }
+    .profile_body li{
+        padding-bottom:2%;
+    }
+    .profile_left {
+        display: inline-block;
+        width: 40%;
+        color: #ffb54B;
+    }
+        .profile_left .category{
+            font-family: "adequateextra_light";
+            font-size: 15pt;
+            text-shadow: 1px 1px #a36302;
+            margin-right: 2%;
+        }
+        .profile_left .text{
+            color: white;
+            font-size: 13pt;
+            font-weight: 700;
+        }
+        .profile_left p{
+            margin-bottom:2%;
+        }
+        .profile_left table{
+            /* margin-top: 2%;
+            margin-left: 0pt; */
+            margin: 2% 0 2% 0;
+        }
+        .profile_left td input{
+            margin-left: 20%;
+        }
+    .profile_left hr{
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 2px solid;
+        margin: 1em 0;
+        padding: 0;
+        width:90%;
+    }
 
-
-
-
+    .profile_right {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .profile_right .category{
+        color: white;
+        font-family: "adequateextra_light";
+        font-size: 15pt;
+        text-shadow: 1px 1px #00498F;
+        margin-right: 2%;
+    }
 
