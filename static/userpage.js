@@ -13,7 +13,7 @@ $(document).ready(function(){
         return false
     });
 // submit idea
-    $('#idea').submit(function(){
+    $('#idea_feed').submit(function(){
         $.ajax({
             url: "/create_idea",
             method: "POST",
