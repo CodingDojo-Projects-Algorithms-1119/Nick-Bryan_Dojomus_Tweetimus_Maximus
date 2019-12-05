@@ -1,0 +1,25 @@
+{% for idea in idea_data %}
+<p>{{ idea.author.f_name}} {{idea.author.l_name}} wrote at {{idea.created_at.strftime('%Y-%m-%d')}}:
+</p>
+<!-- <textarea cols="43" rows="7" disabled>{{ idea["content"] }}</textarea> -->
+    <div id="idea{{idea.idea_id}}" class="posted_ideas triangle {{idea.idea_id}}"><p>{{ idea["content"] }}</p></div>
+    {% if idea.liked_by|length > 0 %}
+    <p>{{idea.liked_by|length}} likes!</p>
+    {% endif %}
+<br>
+{% if user_data in idea.liked_by %}
+<p>You liked this idea!</p>
+{% endif %}
+{% if user_data in idea.liked_by %}
+    <p><a href="/unlike_idea/{{idea['idea_id']}}"><button>Unlike</button></a>
+{% else %}
+    <p><a href="/like_idea/{{idea['idea_id']}}"><button>Like!</button></a>
+{% endif %} 
+<a href="/details/{{idea['idea_id']}}">Details</a></p>
+{% if idea.author.user_id == user_data.user_id %} 
+<!-- <p><a href="/edit_idea/{{idea['idea_id']}}"><button>Edit Idea</button></a> -->
+<p><button id="edit_idea{{idea.idea_id}}">Edit Idea</button>
+<!-- <a href="/delete_idea/{{idea['idea_id']}}"><button>Delete Idea</button></a></p> -->
+<button id="delete_button" class="{{idea.idea_id}}">X</button></p>
+{% endif %}
+{% endfor %} 

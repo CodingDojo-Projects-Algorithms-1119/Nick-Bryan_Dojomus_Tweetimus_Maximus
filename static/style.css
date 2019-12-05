@@ -21,15 +21,19 @@ body {
 /* Header for most pages */
 
 .links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     vertical-align: top;
-    margin: .5% 0% 0% 90%
+    max-height: 20px;
 }
 
     .links a {
-            text-decoration: none;
-            color: #FFB54B;
-            padding: 0px 5px;
-            text-shadow: 1px 1px #00498F;
+        right: 10px;
+        text-decoration: none;
+        color: #FFB54B;
+        padding: 0px 5px;
+        text-shadow: 1px 1px #00498F;
         }
 
 .page_title {
@@ -46,12 +50,11 @@ body {
 #greeting {
     margin-left: 6%;
     padding-top: 3%;
-    vertical-align: top;
-    
+    vertical-align: top;   
 }
 
     #greeting h1 {
-        font-size: 96px;
+        font-size: 80px;
         font-weight: 100;
         font-family: "adequateextra_light";
         color: #ff9700;
@@ -60,6 +63,7 @@ body {
 
     #greeting p {
         font-family: "adequateextra_light";
+        font-size: 12px;
         color: #ffb54B;
         text-shadow: 1px 1px #00498F;
     }
@@ -67,6 +71,7 @@ body {
 #get_in{
     display: block;
     margin: 5% auto 0% auto;
+    padding-top: 2px;
     width: 400px;
     background-color: #ffB54B;
     border-radius: 16px;
@@ -74,9 +79,12 @@ body {
     box-shadow: 4px 4px 6px #00498F;
 }
 
-#get_in h2 {
-    margin: 16px 0px 8px 0px;
-}
+    #get_in h2 {
+        margin: 16px 0px 8px 0px;
+        color: white;
+        font-family: "adequateextra_light";
+        text-shadow: 1px 1px #a36302
+    }
 
 #splitter {
     width: 65%;
@@ -121,23 +129,37 @@ body {
     text-align: center;
 }
 
-#post_idea h2 {
+    #post_idea h2 {
+        color: white;
+        font-weight: 100;
+        font-size: 32px;
+        text-shadow: 2px 2px #00498F;
+        font-family: "adequateextra_light";
+    }
+
+    #post_idea textarea {
+        width: 500px;
+        padding: 20px;
+        margin: 10px auto 0 auto;
+        background-color: #FFe7c4;
+        border: 4px solid #ff9700;
+        border-radius: 25px;
+        resize: none;
+        box-shadow: 4px 4px 6px #00498F;
+    }
+
+#submit_idea {
+    width: 125px;
+    padding: 5px 0px;
+    margin: 15px 0px 0px 275px;
+    border: none;
+    border-radius: 6px;
+    background-color: #00498F;
+    box-shadow: 3px 3px 6px #00498F;
     color: white;
-    font-weight: 100;
-    font-size: 32px;
-    text-shadow: 2px 2px #00498F;
+    cursor: pointer;
 }
 
-#post_idea textarea {
-    width: 500px;
-    padding: 20px;
-    margin: 10px auto 0 auto;
-    background-color: #FFB54B;
-    border: 4px solid #ff9700;
-    border-radius: 25px;
-    resize: none;
-    box-shadow: 4px 4px 6px #00498F;
-}
 
 hr {
     margin-top: 1%;
@@ -150,6 +172,7 @@ hr {
     display: block;
     margin: 2% auto;
     width: 600px;
+    max-height: 2000px;
     text-align: center;
 }
 
@@ -158,14 +181,16 @@ hr {
     font-weight: 100;
     font-size: 32px;
     text-shadow: 2px 2px #00498F;
+    font-family: "adequateextra_light";
 }
 
 .posted_ideas {
     width: 500px;
     min-height: 75px;
+    max-height: 200px;
     padding: 10px 20px;
     margin-top: 20px;
-    background-color: #FFB54B;
+    background-color: #FFe7c4;
     border: 4px solid #ff9700;
     border-radius: 25px;
     text-align: left;
@@ -193,19 +218,128 @@ hr {
         margin-bottom: 4px;
         border-radius: 6px;
         background-color: #0e76da;
-        border: 1px solid #0e76da;
+        border: 1px solid #9DB3C8;
         color: white;
         font-size: 14px;
-        box-shadow: 1px 1px 1px 2px #00498F;
+        box-shadow: 1px 1px 1px #00498F;
         text-align: center;
     }
 
     .posted_ideas a {
         vertical-align: bottom;
-        margin-left: 95%;
+        margin-left: 93%;
         text-decoration: none;
-        color: #00498F
+        color: #0e76da;
+        text-shadow: 1px 1px #00498F;
     }
+
+#friend_list {
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    width: 15%;
+    border: 4px solid #ff9700;
+    border-bottom: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #ffB54B;
+    box-shadow: 4px 4px 6px 6px #00498F;
+}
+
+
+#friend_list_header {
+    border-bottom: 3px solid #ff9700;
+}
+
+    #friend_list_header h3 {
+        display: inline-block;
+        margin: 1% 0px 1% 32%;
+        font-family: "adequateextra_light";
+        color: white;
+        text-shadow: 1px 1px #a36302;
+    }
+
+    .min_expand {
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        width: 16px;
+        height: 8px;
+        background-color: #0e76da;
+        border: 1px solid #9DB3C8;
+        border-radius: 6px;
+        color: white;
+        box-shadow: 1px 1px 1px #00498F;
+        text-align: center;
+        padding-bottom: 4px;
+        line-height: 1px;
+    }
+
+#scroll_bar {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#friend_search {
+    display: block;
+    margin: 5px auto;
+    width: 80%;
+    height: 20px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.friends {
+    display: block;
+    text-decoration: none;
+    color: black;
+    background-color: #FFe7c4;
+    border: 2px outset #ff9700;
+    border-radius: 6px;
+    margin: 4px auto;
+    padding: 4px;
+    text-align: center;
+    width: 90%;
+}
+
+.message_from_friend {
+    display: inline-block;
+    position: fixed;
+    right: 83%;
+    bottom: 0;
+    z-index: 998;
+    width: 15%;
+    border: 4px solid #ff9700;
+    border-bottom: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #ffB54B;
+    box-shadow: 4px 4px 6px 6px #00498F;
+}
+
+    .message_from_friend p {
+        font-size: 14px;
+    }
+
+.message_header {
+    border-bottom: 3px solid #ff9700;
+}
+
+    .message_header h3 {
+        display: inline-block;
+        margin: 1% 0px 1% 32%;
+        font-family: "adequateextra_light";
+        color: white;
+        text-shadow: 1px 1px #a36302;
+    }
+
+.content {
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px 6px;
+}
 
 
 
