@@ -19,8 +19,8 @@
     </div>
     <h1 class="page_title">Ideas!</h1>
     <div id="post_idea">
+        <h2>Hey {{user_data.f_name}}, post a great idea!</h2>
         <form action="/create_idea" id="idea" method="POST">
-            <h2>Hey {{user_data.f_name}}, post a great idea!</h2>
             <textarea id="idea_textarea" form="idea" rows="2" cols="40" placeholder="If we just blew into the sail, we could travel the oceans forever!" name="idea_content"></textarea><br>
             <button type="submit" id="submit_idea">Submit</button>
         </form>
@@ -36,7 +36,7 @@
     <div id="board">
         <h2 id="board_greeting">What others are thinking</h2>
         {% for idea in idea_data %}
-        <div class="posted_ideas triangle {{idea.idea_id}}" id="idea">
+        <div class="posted_ideas triangle {{idea.idea_id}}" id="idea_feed">
             <a href="" id="delete_button" class="{{idea.idea_id}}">X</a>
         <!-- {% if following == () %}
         <p>You aren't following anyone!</p>
