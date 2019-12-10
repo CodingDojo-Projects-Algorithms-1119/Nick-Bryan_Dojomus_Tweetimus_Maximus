@@ -229,7 +229,7 @@ def create_idea():
         flash("Idea saved!")
         user_data = User.query.filter_by(user_id = session["user_id"]["id"]).all()
         idea_data = Idea.query.order_by(desc(Idea.created_at)).join(User).all()
-        return render_template("userpage.html", user_data = user_data[0], idea_data= idea_data)
+        return render_template("/partials/idea_feed.html", user_data = user_data[0], idea_data= idea_data)
 
 def delete_idea(idea_id):
     if "user_id" not in session:

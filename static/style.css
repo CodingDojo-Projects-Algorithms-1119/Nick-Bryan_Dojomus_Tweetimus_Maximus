@@ -213,16 +213,15 @@ hr {
 
     #delete_button {
         display: block;
-        width: 16px;
-        margin-left: 96.5%;
+        margin-left: 99%;
         margin-bottom: 4px;
-        border-radius: 6px;
-        background-color: #0e76da;
-        border: 1px solid #9DB3C8;
-        color: white;
-        font-size: 14px;
-        box-shadow: 1px 1px 1px #00498F;
+        background-color: #FFe7c4;
+        border: none;
+        color: rgb(99, 99, 99);
+        font-size: 10px;
         text-align: center;
+        cursor: pointer;
+
     }
 
     .posted_ideas a {
