@@ -55,19 +55,18 @@
             {% if idea["created_at"] != idea["updated_at"] %} 
                 (updated {{idea["updated_at"].strftime('%Y-%m-%d')}})
             {% endif %} -->
-            {% if idea.liked_by|length > 0 %}
-            <p id="display_affirmations">{{idea.liked_by|length}} Affirmations</p>
-            {% endif %}
             {% if user_data in idea.liked_by %}
-                <a href="/unlike_idea/{{idea['idea_id']}}"><button class="affirm_dissent">Dissent</button></a>
+                <button class="like_unlike {{idea.}}">Unlike</button>
             {% else %}
-                <a href="/like_idea/{{idea['idea_id']}}"><button class="affirm_dissent">Affirm</button></a>
+                <button class="like_unlike">Like</button>
             {% endif %} 
-        </div>
-        <a href="/details/{{idea['idea_id']}}">Details</a></p>
-        {% if idea.author.user_id == user_data.user_id %} 
-        <p><button id="edit_idea{{idea.idea_id}}">Edit Idea</button>
-        {% endif %}
+            {% if idea.liked_by|length > 0 %}
+            <a href="/details/{{idea['idea_id']}}"><p id="display_likes">{{idea.liked_by|length}}</p></a>
+            {% endif %}
+            {% if idea.author.user_id == user_data.user_id %} 
+                <a href="/edit/{{idea['idea_id']}}" id="edit_idea{{idea.idea_id}}" class="edit_content">Edit</a>
+            {% endif %}
+        </div>   
     {% endfor %}    
     </div>
 </body>

@@ -198,40 +198,68 @@ hr {
     box-shadow: 4px 4px 6px #00498F;
 }
 
-.affirm_dissent {
-    vertical-align: bottom;
-    margin-top: 5px;
-    margin-left: 4%;
-    padding: none;
-}
-
-.triangle::before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 20px solid #ff9700;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #ff9700;
-    border-bottom: 20px solid transparent;
-    right: -40px;
-    top: 20px;
-  }
-
-    #delete_button {
-        display: block;
-        margin-left: 99%;
-        margin-bottom: 4px;
-        background-color: #FFe7c4;
-        border: none;
-        color: rgb(99, 99, 99);
-        font-size: 10px;
-        text-align: center;
-        cursor: pointer;
-
+    .posted_ideas a {
+        display: inline-block;
+        margin-top: 25px;
+        vertical-align: bottom;
+        text-decoration: none;
     }
 
-    
+    .triangle::before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 20px solid #ff9700;
+        border-right: 20px solid transparent;
+        border-top: 20px solid #ff9700;
+        border-bottom: 20px solid transparent;
+        right: -40px;
+        top: 20px;
+    }
+
+#delete_button {
+    display: block;
+    margin-left: 99%;
+    margin-bottom: 4px;
+    background-color: #FFe7c4;
+    border: none;
+    color: rgb(99, 99, 99);
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+    }   
+
+.like_unlike {
+        display: inline-block;
+        vertical-align: bottom;
+        width: 50px;
+        margin: 5px 10px 0px 370px;
+        padding: none;
+        border-radius: 6px;
+        background-color: #0e76da;
+        border: 1px solid #9DB3C8;
+        color: white !important;
+        font-size: 12px;
+        box-shadow: 1px 1px 1px #00498F;
+        text-align: center;
+        cursor: pointer;
+    }
+
+#display_likes {
+    vertical-align: bottom;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+
+.edit_content {
+    text-align: right;
+    text-decoration: none;
+    color: #0e76da;
+    text-shadow: 1px 1px #00498F;
+    font-size: 12px;
+}
 
 #friend_list {
     display: inline-block;

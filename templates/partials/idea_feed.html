@@ -2,8 +2,10 @@
     <h2 id="board_greeting">What others are thinking</h2>
     {% for idea in idea_data %}
     <div class="posted_ideas triangle {{idea.idea_id}}" id="idea_feed">
-        <button id="delete_button" class="{{idea.idea_id}}">X</button>
-    <p>{{ idea.author.f_name}} {{idea.author.l_name}} wrote {{idea.content}} at {{idea.created_at.strftime('%Y-%m-%d')}}:</p>
+        {% if idea.author.user_id == user_data.user_id %} 
+            <button id="delete_button" class="{{idea.idea_id}}">X</button>
+        {% endif%}
+        <p>{{ idea.author.f_name}} {{idea.author.l_name}} wrote {{idea.content}} at {{idea.created_at.strftime('%Y-%m-%d')}}:</p>
         <!-- {% if idea["time_now"] %}
             just now
             {% elif idea["time_since_seconds"] %}
@@ -18,21 +20,17 @@
         {% if idea["created_at"] != idea["updated_at"] %} 
             (updated {{idea["updated_at"].strftime('%Y-%m-%d')}})
         {% endif %} -->
+        {% if user_data in idea.liked_by %}
+            <a href="/unlike_idea/{{idea['idea_id']}}"><button class="like_unlike">Unlike</button></a>
+        {% else %}
+            <a href="/like_idea/{{idea['idea_id']}}"><button class="like_unlike">Like</button></a>
+        {% endif %} 
         {% if idea.liked_by|length > 0 %}
-        <p>{{idea.liked_by|length}} likes!</p>
+        <a href="/details/{{idea['idea_id']}}"><p id="display_likes">{{idea.liked_by|length}}</p></a>
         {% endif %}
-    </div>
-    {% if user_data in idea.liked_by %}
-    <p>You liked this idea!</p>
-    {% endif %}
-    {% if user_data in idea.liked_by %}
-        <p><a href="/unlike_idea/{{idea['idea_id']}}"><button>Unlike</button></a>
-    {% else %}
-        <p><a href="/like_idea/{{idea['idea_id']}}"><button>Like!</button></a>
-    {% endif %} 
-    <a href="/details/{{idea['idea_id']}}">Details</a></p>
-    {% if idea.author.user_id == user_data.user_id %} 
-    <p><button id="edit_idea{{idea.idea_id}}">Edit Idea</button>
-    {% endif %}
+        {% if idea.author.user_id == user_data.user_id %} 
+            <a href="/edit/{{idea['idea_id']}}" id="edit_idea{{idea.idea_id}}" class="edit_content">Edit</a>
+        {% endif %}
+    </div>   
 {% endfor %}    
 </div>

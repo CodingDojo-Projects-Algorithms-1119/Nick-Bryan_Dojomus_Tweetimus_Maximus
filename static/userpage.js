@@ -25,6 +25,19 @@ $(document).ready(function(){
         })
         return false
     });
+// submit idea
+$('#idea').submit(function(){
+    $.ajax({
+        url: "/create_idea",
+        method: "POST",
+        data: $("#idea").serialize()
+    })
+    .done(function(response){
+        $("#board").html(response)
+        $('#idea_textarea').val('');
+    })
+    return false
+});
 // edit button
     $('#edit_idea{{idea.idea_id}}').click(function(){
         $("#idea{{idea.idea_id}}").html("<p>test<p>")
