@@ -1,6 +1,6 @@
 $(document).ready(function(){
 // delete button
-    $('#idea_feed').on('click','#delete_button',function(){
+    $('#board').on('click','#delete_button',function(){
         var del_id = $(this).attr('class');
         var link ="/delete_idea/"+del_id
         $.ajax({

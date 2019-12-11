@@ -37,8 +37,10 @@
         <h2 id="board_greeting">What others are thinking</h2>
         {% for idea in idea_data %}
         <div class="posted_ideas triangle {{idea.idea_id}}" id="idea_feed">
-            <button id="delete_button" class="{{idea.idea_id}}">X</button>
-        <p>{{ idea.author.f_name}} {{idea.author.l_name}} wrote {{idea.content}} at {{idea.created_at.strftime('%Y-%m-%d')}}:</p>
+            {% if idea.author.user_id == user_data.user_id %} 
+                <button id="delete_button" class="{{idea.idea_id}}">X</button>
+            {% endif%}
+            <p>{{ idea.author.f_name}} {{idea.author.l_name}} wrote {{idea.content}} at {{idea.created_at.strftime('%Y-%m-%d')}}:</p>
             <!-- {% if idea["time_now"] %}
                 just now
                 {% elif idea["time_since_seconds"] %}
@@ -54,17 +56,14 @@
                 (updated {{idea["updated_at"].strftime('%Y-%m-%d')}})
             {% endif %} -->
             {% if idea.liked_by|length > 0 %}
-            <p>{{idea.liked_by|length}} likes!</p>
+            <p id="display_affirmations">{{idea.liked_by|length}} Affirmations</p>
             {% endif %}
+            {% if user_data in idea.liked_by %}
+                <a href="/unlike_idea/{{idea['idea_id']}}"><button class="affirm_dissent">Dissent</button></a>
+            {% else %}
+                <a href="/like_idea/{{idea['idea_id']}}"><button class="affirm_dissent">Affirm</button></a>
+            {% endif %} 
         </div>
-        {% if user_data in idea.liked_by %}
-        <p>You liked this idea!</p>
-        {% endif %}
-        {% if user_data in idea.liked_by %}
-            <p><a href="/unlike_idea/{{idea['idea_id']}}"><button>Unlike</button></a>
-        {% else %}
-            <p><a href="/like_idea/{{idea['idea_id']}}"><button>Like!</button></a>
-        {% endif %} 
         <a href="/details/{{idea['idea_id']}}">Details</a></p>
         {% if idea.author.user_id == user_data.user_id %} 
         <p><button id="edit_idea{{idea.idea_id}}">Edit Idea</button>
