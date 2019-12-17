@@ -56,15 +56,15 @@
                 (updated {{idea["updated_at"].strftime('%Y-%m-%d')}})
             {% endif %} -->
             {% if user_data in idea.liked_by %}
-                <button class="like_unlike {{idea.}}">Unlike</button>
+                <button class="{{idea.idea_id}}" id="unlike">Unlike</button>
             {% else %}
-                <button class="like_unlike">Like</button>
+                <button class="{{idea.idea_id}}" id="like">Like</button>
             {% endif %} 
             {% if idea.liked_by|length > 0 %}
             <a href="/details/{{idea['idea_id']}}"><p id="display_likes">{{idea.liked_by|length}}</p></a>
             {% endif %}
             {% if idea.author.user_id == user_data.user_id %} 
-                <a href="/edit/{{idea['idea_id']}}" id="edit_idea{{idea.idea_id}}" class="edit_content">Edit</a>
+                <a href="/edit/{{idea['idea_id']}}" id="edit_idea" class="edit_content {{idea.idea_id}}">Edit</a>
             {% endif %}
         </div>   
     {% endfor %}    

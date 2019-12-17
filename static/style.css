@@ -230,21 +230,37 @@ hr {
     cursor: pointer;
     }   
 
-.like_unlike {
-        display: inline-block;
-        vertical-align: bottom;
-        width: 50px;
-        margin: 5px 10px 0px 370px;
-        padding: none;
-        border-radius: 6px;
-        background-color: #0e76da;
-        border: 1px solid #9DB3C8;
-        color: white !important;
-        font-size: 12px;
-        box-shadow: 1px 1px 1px #00498F;
-        text-align: center;
-        cursor: pointer;
+#unlike {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 50px;
+    margin: 5px 10px 0px 370px;
+    padding: none;
+    border-radius: 6px;
+    background-color: #0e76da;
+    border: 1px solid #9DB3C8;
+    color: white !important;
+    font-size: 12px;
+    box-shadow: 1px 1px 1px #00498F;
+    text-align: center;
+    cursor: pointer;
     }
+
+#like {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 50px;
+    margin: 5px 10px 0px 370px;
+    padding: none;
+    border-radius: 6px;
+    background-color: #0e76da;
+    border: 1px solid #9DB3C8;
+    color: white !important;
+    font-size: 12px;
+    box-shadow: 1px 1px 1px #00498F;
+    text-align: center;
+    cursor: pointer;
+}
 
 #display_likes {
     vertical-align: bottom;

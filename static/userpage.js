@@ -1,8 +1,8 @@
 $(document).ready(function(){
 // delete button
-    $('#board').on('click','#delete_button',function(){
+    $('#board').on('click','#delete_button', function(){
         var del_id = $(this).attr('class');
-        var link ="/delete_idea/"+del_id
+        var link ="/delete_idea/" + del_id
         $.ajax({
             url: link
             // data: $("#idea").serialize()
@@ -25,21 +25,32 @@ $(document).ready(function(){
         })
         return false
     });
-// submit idea
-$('#idea').submit(function(){
+// UnLike idea
+$('#board').on('click','#unlike', function(){
+    var unlike_id = $(this).attr('class');
+    var link ="/unlike_idea/" + unlike_id
     $.ajax({
-        url: "/create_idea",
-        method: "POST",
-        data: $("#idea").serialize()
+        url: link
     })
     .done(function(response){
         $("#board").html(response)
-        $('#idea_textarea').val('');
+    })
+    return false
+});
+// Like idea
+$('#board').on('click','#like', function(){
+    var like_id = $(this).attr('class');
+    var link ="/like_idea/" + like_id
+    $.ajax({
+        url: link
+    })
+    .done(function(response){
+        $("#board").html(response)
     })
     return false
 });
 // edit button
-    $('#edit_idea{{idea.idea_id}}').click(function(){
+    $('#edit_idea').click(function(){
         $("#idea{{idea.idea_id}}").html("<p>test<p>")
     });
     $('.testbutton').click(function(){
