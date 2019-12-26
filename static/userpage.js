@@ -49,11 +49,11 @@ $('#board').on('click','#like', function(){
     })
     return false
 });
-// edit button
-    $('#edit_idea').click(function(){
-        $("#idea{{idea.idea_id}}").html("<p>test<p>")
-    });
-    $('.testbutton').click(function(){
-        $(".testdiv").html("not working?")
-    });
-})
+// // edit button
+//     $('#edit_idea').click(function(){
+//         $("#idea{{idea.idea_id}}").html("<p>test<p>")
+//     });
+//     $('.testbutton').click(function(){
+//         $(".testdiv").html("not working?")
+//     });
+// })

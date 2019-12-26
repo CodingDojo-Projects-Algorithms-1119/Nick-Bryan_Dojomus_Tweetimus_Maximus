@@ -239,7 +239,7 @@ hr {
     border-radius: 6px;
     background-color: #0e76da;
     border: 1px solid #9DB3C8;
-    color: white !important;
+    color: white;
     font-size: 12px;
     box-shadow: 1px 1px 1px #00498F;
     text-align: center;
@@ -255,7 +255,7 @@ hr {
     border-radius: 6px;
     background-color: #0e76da;
     border: 1px solid #9DB3C8;
-    color: white !important;
+    color: white;
     font-size: 12px;
     box-shadow: 1px 1px 1px #00498F;
     text-align: center;
