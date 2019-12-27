@@ -12,6 +12,7 @@
 <body>
     <div class="links">
         <a href="/userpage">Home</a>
+
         <a href="/userprofile/{{user_data.user_id}}">Account</a>
         <a href="/users">Users</a>
         <a href="/followers/{{user_data['id']}}">Followers</a>
@@ -19,8 +20,8 @@
     </div>
     <h1 class="page_title">Ideas!</h1>
     <div id="post_idea">
+        <h2>Hey {{user_data.f_name}}, post a great idea!</h2>
         <form action="/create_idea" id="idea" method="POST">
-            <h2>Hey {{user_data.f_name}}, post a great idea!</h2>
             <textarea id="idea_textarea" form="idea" rows="2" cols="40" placeholder="If we just blew into the sail, we could travel the oceans forever!" name="idea_content"></textarea><br>
             <button type="submit" id="submit_idea">Submit</button>
         </form>
@@ -37,11 +38,10 @@
         <h2 id="board_greeting">What others are thinking</h2>
         {% for idea in idea_data %}
         <div class="posted_ideas triangle {{idea.idea_id}}" id="idea_feed">
-            <a href="" id="delete_button" class="{{idea.idea_id}}">X</a>
-        <!-- {% if following == () %}
-        <p>You aren't following anyone!</p>
-        {% endif %} -->
-        <p><a href="/userprofile/{{idea.author.user_id}}">{{ idea.author.f_name}} {{idea.author.l_name}}</a> wrote at {{idea.created_at.strftime('%Y-%m-%d')}}:
+            {% if idea.author.user_id == user_data.user_id %} 
+                <button id="delete_button" class="{{idea.idea_id}}">X</button>
+            {% endif%}
+            <p>{{ idea.author.f_name}} {{idea.author.l_name}} wrote {{idea.content}} at {{idea.created_at.strftime('%Y-%m-%d')}}:</p>
             <!-- {% if idea["time_now"] %}
                 just now
                 {% elif idea["time_since_seconds"] %}
@@ -56,71 +56,19 @@
             {% if idea["created_at"] != idea["updated_at"] %} 
                 (updated {{idea["updated_at"].strftime('%Y-%m-%d')}})
             {% endif %} -->
-        </p>
-        <!-- <textarea cols="43" rows="7" disabled>{{ idea["content"] }}</textarea> -->
-            <!-- <div id="idea{{idea.idea_id}}"><p>{{ idea["content"] }}</p></div> -->
+            {% if user_data in idea.liked_by %}
+                <button class="{{idea.idea_id}}" id="unlike">Unlike</button>
+            {% else %}
+                <button class="{{idea.idea_id}}" id="like">Like</button>
+            {% endif %} 
             {% if idea.liked_by|length > 0 %}
-            <p>{{idea.liked_by|length}} likes!</p>
+            <a href="/details/{{idea['idea_id']}}"><p id="display_likes">{{idea.liked_by|length}}</p></a>
             {% endif %}
-        </div>
-        {% if user_data in idea.liked_by %}
-        <p>You liked this idea!</p>
-        {% endif %}
-        {% if user_data in idea.liked_by %}
-            <p><a href="/unlike_idea/{{idea['idea_id']}}"><button>Unlike</button></a>
-        {% else %}
-            <p><a href="/like_idea/{{idea['idea_id']}}"><button>Like!</button></a>
-        {% endif %} 
-        <a href="/details/{{idea['idea_id']}}">Details</a></p>
-        {% if idea.author.user_id == user_data.user_id %} 
-        
-        <!-- <p><a href="/edit_idea/{{idea['idea_id']}}"><button>Edit Idea</button></a> -->
-        <p><button id="edit_idea{{idea.idea_id}}">Edit Idea</button>
-        <!-- <a href="/delete_idea/{{idea['idea_id']}}"><button>Delete Idea</button></a></p> -->
-        {% endif %}
+            {% if idea.author.user_id == user_data.user_id %} 
+                <a href="/edit/{{idea['idea_id']}}" id="edit_idea" class="edit_content {{idea.idea_id}}">Edit</a>
+            {% endif %}
+        </div>   
     {% endfor %}    
     </div>
-    <!-- <h3>All Tweets:</h3>
-    {% for tweet in tweet_data %}
-        <div class="tweet">
-        <p>{{ tweet["first_name"]}} wrote
-            {% if tweet["time_now"] %}
-                just now
-                {% elif tweet["time_since_seconds"] %}
-                    {{tweet["time_since_seconds"]}} seconds ago
-                {% elif tweet["time_since_minutes"] %}
-                    {{tweet["time_since_minutes"]}} minutes ago
-                {% elif tweet["time_since_hours"] %}
-                    {{tweet["time_since_hours"]}} hours ago
-                {% elif tweet["time_since_days"] %}
-                    {{tweet["time_since_days"]}} days ago
-            {% endif %}
-            {% if tweet["created_at"] != tweet["updated_at"] %} 
-                (updated {{tweet["updated_at"].strftime('%Y-%m-%d')}})
-            {% endif %}
-        : </p>
-        <textarea cols="43" rows="7" disabled>{{ tweet["content"] }}</textarea>
-        {% for like in like_count %}
-            {% if like["tweet_like"] == tweet["tweet_id"] %}
-                <p>Liked {{like["like_count"]}} times</p>
-            {% endif %}
-        {% endfor %}
-        <br>
-        {% if tweet["tweet_id"] in liked_tweets %}
-            <p><a href="/unlike_tweet/{{tweet['tweet_id']}}"><button>Unlike</button></a>
-        {% else %}
-            <p><a href="/like_tweet/{{tweet['tweet_id']}}"><button>Like!</button></a>
-        {% endif %} 
-        <a href="/details/{{tweet['tweet_id']}}">Details</a></p>
-        <br>
-        {% if tweet["first_name"] == user_data["first_name"] %} 
-        <p><a href="/edit_tweet/{{tweet['tweet_id']}}"><button>Edit Tweet</button></a>
-        <a href="/delete_tweet/{{tweet['tweet_id']}}"><button>Delete Tweet</button></a></p>
-        {% endif %}
-        </div>
-        <hr>
-        <br>
-    {% endfor %} -->
-
 </body>
 </html>
