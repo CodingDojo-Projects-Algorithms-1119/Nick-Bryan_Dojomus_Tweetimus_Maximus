@@ -115,29 +115,34 @@ def logout():
     return redirect("/")
 
 def userprofile(user_id):
-    current_user = User.query.get(user_id)
-    return render_template ("userprofile.html", user=current_user)
+    if "user_id" not in session:
+        return redirect("/logout")
+    view_user = User.query.get(user_id)
+    current_user = User.query.get(session["user_id"]["id"])
+    return render_template ("profile.html", user=view_user, cur_user = current_user)
 
 def editprofile():
     id = request.form["user_id"]
     if int(id) != session["user_id"]["id"]:
         return redirect ("/logout")
     user = User.query.get(id)
-    if request.form["email"] != session["user_id"]["email"]:
-        if not EMAIL_REGEX.match(request.form["email"]):
-            flash("Invalid Email Address", "update_profile")
-        else:
-            user.email = request.form["email"]
-            print("email changed")
-            session["user_id"] = {
-                "first": user.f_name,
-                "last": user.l_name,
-                "email":request.form["email"],
-                "id": user.user_id}
-            flash("Email Updated", "update_profile")
+    # if request.form["email"] != session["user_id"]["email"]:
+    #     if not EMAIL_REGEX.match(request.form["email"]):
+    #         flash("Invalid Email Address", "update_profile")
+    #     else:
+    #         user.email = request.form["email"]
+    #         print("email changed")
+    #         session["user_id"] = {
+    #             "first": user.f_name,
+    #             "last": user.l_name,
+    #             "email":request.form["email"],
+    #             "id": user.user_id}
+    #         flash("Email Updated", "update_profile")
     if request.form["profile"] and request.form["profile"] != user.profile:
         if len(request.form["profile"]) > 1600:
             flash("Profile must be less than 1600 characters", "update_profile")
+        if request.form["profile"] == " ":
+            user.profile = None
         else:
             user.profile = request.form["profile"]
             print("profile changed")
