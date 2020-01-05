@@ -1,5 +1,5 @@
 from config import app
-from controller_functions import index, new_acc, reg_fname, reg_lname, reg_email_check, reg_pw, reg_pw_match, login, logout, userprofile, editprofile, editpassword, userpage, create_idea, delete_idea, edit_page, edit_idea, like, unlike, details, users, add_friend, remove_friend
+from controller_functions import index, new_acc, reg_fname, reg_lname, reg_email_check, reg_pw, reg_pw_match, login, logout, userprofile, editprofile, editpassword, userpage, create_idea, delete_idea, edit_page, edit_idea, like, unlike, details, users, add_friend, remove_friend, refresh_feed
 
 app.add_url_rule("/", view_func=index)
 app.add_url_rule("/register", view_func=new_acc, methods=["POST"])
@@ -24,4 +24,5 @@ app.add_url_rule("/details/<idea_id>", view_func=details)
 app.add_url_rule("/users", view_func=users)
 app.add_url_rule("/add_friend/<user_id>", view_func=add_friend)
 app.add_url_rule("/remove_friend/<user_id>", view_func=remove_friend)
+app.add_url_rule("/refresh_feed", view_func=refresh_feed)
 

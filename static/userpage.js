@@ -1,4 +1,18 @@
 $(document).ready(function(){
+    // partial auto-refresh
+        // var $container = $("#board");
+        // $container.load("partials/idea_feed.html");
+        var refreshId = setInterval(function()
+        {
+            $.ajax({
+                url: "/refresh_feed"
+            })
+            .done(function(response){
+                $('#board').html(response);
+            })
+            return false
+            //$container.load('partials/idea_feed.html');
+        }, 4000);
     // delete button
         $('#board').on('click','#delete_button', function(){
             var del_id = $(this).attr('class');

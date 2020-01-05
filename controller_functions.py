@@ -330,3 +330,8 @@ def remove_friend(user_id):
     current_user.friends.remove(friend_to_remove)
     db.session.commit()
     return redirect("/users")
+
+def refresh_feed():
+    user_data = User.query.filter_by(user_id = session["user_id"]["id"]).all()
+    idea_data = Idea.query.order_by(desc(Idea.created_at)).join(User).all()
+    return render_template("partials/idea_feed.html", user_data = user_data[0], idea_data= idea_data)
