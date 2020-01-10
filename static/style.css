@@ -205,6 +205,11 @@ hr {
         text-decoration: none;
     }
 
+    .posted_ideas p {
+        display: inline-block;
+        vertical-align: top;
+    }
+
     .triangle::before {
         content: "";
         width: 0px;
@@ -219,8 +224,9 @@ hr {
     }
 
 #delete_button {
-    display: block;
-    margin-left: 99%;
+    position: absolute;
+    display: inline-block;
+    margin-left: 150px;
     margin-bottom: 4px;
     background-color: #FFe7c4;
     border: none;
@@ -230,9 +236,8 @@ hr {
     cursor: pointer;
     }   
 
-#unlike {
+#unlike { 
     display: inline-block;
-    vertical-align: bottom;
     width: 50px;
     margin: 5px 10px 0px 370px;
     padding: none;
@@ -248,7 +253,6 @@ hr {
 
 #like {
     display: inline-block;
-    vertical-align: bottom;
     width: 50px;
     margin: 5px 10px 0px 370px;
     padding: none;
