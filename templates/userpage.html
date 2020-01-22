@@ -38,10 +38,12 @@
         <h2 id="board_greeting">What others are thinking</h2>
         {% for idea in idea_data %}
         <div class="posted_ideas triangle {{idea.idea_id}}" id="idea_feed">
-            <p>{{ idea.author.f_name}} {{idea.author.l_name}} wrote {{idea.content}} at {{idea.created_at.strftime('%Y-%m-%d')}}:</p>
-            {% if idea.author.user_id == user_data.user_id %} 
+            <div id="delete_div">
+                {% if idea.author.user_id == user_data.user_id %} 
                 <button id="delete_button" class="{{idea.idea_id}}">X</button>
-            {% endif%}
+                {% endif%}
+            </div>
+            <p>{{ idea.author.f_name}} {{idea.author.l_name}} wrote {{idea.content}} at {{idea.created_at.strftime('%Y-%m-%d')}}:</p>
             
             <!-- {% if idea["time_now"] %}
                 just now

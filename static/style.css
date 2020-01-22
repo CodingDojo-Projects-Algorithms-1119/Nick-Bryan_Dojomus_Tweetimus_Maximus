@@ -223,11 +223,16 @@ hr {
         top: 20px;
     }
 
+#delete_div {
+    display: block;
+    height: 15px;
+    width: 100%;
+}
+
 #delete_button {
     position: absolute;
     display: inline-block;
-    margin-left: 150px;
-    margin-bottom: 4px;
+    margin-left: 490px;
     background-color: #FFe7c4;
     border: none;
     color: rgb(99, 99, 99);
@@ -239,7 +244,7 @@ hr {
 #unlike { 
     display: inline-block;
     width: 50px;
-    margin: 5px 10px 0px 370px;
+    margin: 5px 3px 0px 375px;
     padding: none;
     border-radius: 6px;
     background-color: #0e76da;
@@ -254,7 +259,7 @@ hr {
 #like {
     display: inline-block;
     width: 50px;
-    margin: 5px 10px 0px 370px;
+    margin: 5px 3px 0px 375px;
     padding: none;
     border-radius: 6px;
     background-color: #0e76da;
@@ -276,6 +281,7 @@ hr {
 .edit_content {
     text-align: right;
     text-decoration: none;
+    margin-left: 3px;
     color: #0e76da;
     text-shadow: 1px 1px #00498F;
     font-size: 12px;
@@ -295,7 +301,6 @@ hr {
     background-color: #ffB54B;
     box-shadow: 4px 4px 6px 6px #00498F;
 }
-
 
 #friend_list_header {
     border-bottom: 3px solid #ff9700;
